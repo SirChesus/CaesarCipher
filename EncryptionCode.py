@@ -19,8 +19,8 @@ class EncryptionCode():
   def caesarBasic(self, string, shift):
     if self.get_isProper:
       joint = ''
-      for letter in range(len(string)):
-        ascii = ord(string[letter:letter+1].lower())
+      for letter in string:
+        ascii = ord(letter.lower())
         ascii = (shift + ascii) % 122
         joint += ''.join(chr(ascii))
     else:
@@ -31,8 +31,8 @@ class EncryptionCode():
   def caesarAdv(self, string, shift):
     if self.get_isProper:
       joint = ''
-      for letter in range(len(string)):
-        ascii = ord(string[letter:letter+1].lower())
+      for letter in string:
+        ascii = ord(letter.lower())
         ascii = (shift + ascii) % 122
         joint += ''.join(self.cipher2[chr(ascii)])
 
@@ -44,8 +44,8 @@ class EncryptionCode():
   def keyBasic(self, string, shift, password):
       if password == 'sleepy':
         joint = ''
-        for letter in range(len(string)):
-          ascii = ord(string[letter:letter+1].lower())
+        for letter in string:
+          ascii = ord(letter.lower())
           ascii = (ascii - shift) % 122
           joint += ''.join(chr(ascii))
 
@@ -58,9 +58,10 @@ class EncryptionCode():
     if password == 'sleepy':
       joint = ''
       telToEng = ''
-      for letter in range(len(string)+1):
+
+      for letter in string:
         for eng, tel in self.cipher2.items():
-          if tel == string[letter:letter+1]:
+          if tel == letter:
             telToEng = eng
             break
         ascii = ord(telToEng)
