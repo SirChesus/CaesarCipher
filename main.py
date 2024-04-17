@@ -8,8 +8,8 @@ print(' ')
 test = EncryptionCode(person_input, number_of_shift, False, 'sleepy')
 
 chooseDef = input("Basic or Advanced Cipher? ")
-while test.get_isProper() == False:
 
+while test.get_isProper() == False:
   if chooseDef.lower() == 'basic':
     print('Encrypted Message: ')
     encrypted = test.caesarBasic(person_input, number_of_shift)
