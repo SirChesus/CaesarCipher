@@ -24,7 +24,6 @@ while test.get_isProper() == False:
 
   else:
     chooseDef = input("Type either 'basic' or 'advanced': ")
-    #continue
 
 
 print(' ')
