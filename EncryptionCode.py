@@ -34,7 +34,7 @@ class EncryptionCode():
       for letter in string:
         ascii = ord(letter.lower())
         ascii = (shift + ascii) % 122
-        if ascii < [65, 97] or ascii > [90, 122]:
+        if (ascii < 65 or ascii > 90) and (ascii < 97 or ascii > 122):
           joint += ''.join(chr(ascii))
         joint += ''.join(self.cipher2[chr(ascii)])
 
